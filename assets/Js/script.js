@@ -1,22 +1,69 @@
 var generateBtn = document.querySelector("#generate");
-var randomNumber = function (min, max) {
-  // var value = Math.floor(8, 128);
-}
 
 var passwordLength = function () {
 
   var lengthConfirm = window.prompt(
     "How many characters would you like your password to be? Please pick between 8 and 128.");
 
-  if (lengthConfirm === (8, 128)) {
-    window.alert("Thankyou! Password length will be" + lengthConfirm);
-  }
-  else {
-    window.alert("You did not pick a number between 8 and 128! Please enter a valid option");
+  if (lengthConfirm < 8 || lengthConfirm > 128) {
+    window.alert('Sorry but your password must be between 8 and 128! Try again!');
     passwordLength();
+
   }
 
 }
+
+var passLowCas = function () {
+
+  var lowercase = window.confirm(
+    "Confirm you would like the password to contain lowercase letters");
+
+  if (lowercase === true) {
+    window.alert('The password will contain lowercase letters!');
+  }
+  else {
+    window.alert("The password will not contain lowercase letters");
+  }
+};
+
+var passUpCas = function () {
+
+  var uppercase = window.confirm(
+    "Confirm you would like the password to contain Uppercase letters");
+
+  if (uppercase === true) {
+    window.alert('The password will contain Uppercase letters!');
+  }
+  else {
+    window.alert("The password will not contain Uppercase letters");
+  }
+};
+
+var numbers = function () {
+
+  var num = window.confirm(
+    "Confirm you would like the password to contain numbers");
+
+  if (num === true) {
+    window.alert('The password will contain numbers!');
+  }
+  else {
+    window.alert("The password will not contain numbers");
+  }
+};
+
+var special = function () {
+
+  var specialChar = window.confirm(
+    "Confirm you would like the password to contain special characters");
+
+  if (specialChar === true) {
+    window.alert('The password will contain special characters!');
+  }
+  else {
+    window.alert("The password will not contain special characters");
+  }
+};
 
 function generatePassword() {
   console.log("hey! You pressed the button");
@@ -24,14 +71,20 @@ function generatePassword() {
   // 1.) Prompt the user for the password criteria
   // Password must be between 8 and 128 characters
   // Lowercase uppercase and special character options
-
-  passwordLength();
-
-
   // 2.) Validate the users input 
   // for all prompts answered
 
+  passwordLength();
+  passLowCas();
+  passUpCas();
+  numbers();
+  special();
+
+
+
+
   // Generate a password
+  writePassword();
 
 
 
