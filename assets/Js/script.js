@@ -13,40 +13,38 @@ function generatePassword() {
   var length = window.prompt("Hello! how long would you like your password to be?");
   if (length < 8 || length > 128) {
     window.alert("Sorry please choose a number between 8 and 128");
-    generatePassword();
+    return
   }
 
   var numbers = window.confirm("Would you like to include numbers?")
-  if (numbers === true) {
+  if (numbers) {
     var num = "1234567890";
     allCharacters = allCharacters.concat(num);
   }
-  else { }
 
   var lowercase = window.confirm("Would you like to include lowercase letters?")
-  if (lowercase === true) {
+  if (lowercase) {
     var lower = "abcdefghijklmnopqrstuvxyz";
     allCharacters = allCharacters.concat(lower);
   }
-  else { }
+
 
   var uppercase = window.confirm("Would you like to include uppercase letters?")
-  if (uppercase === true) {
+  if (uppercase) {
     var upper = "ABCDEFGHIJKLMNOPQRSTUVZXYZ";
     allCharacters = allCharacters.concat(upper);
   }
-  else { }
 
   var specialCharacters = window.confirm("Would you like to include Special Characters?")
-  if (specialCharacters === true) {
+  if (specialCharacters) {
     var spChar = "!@#$%^&*()-+=<>?,./";
     allCharacters = allCharacters.concat(spChar);
   }
-  else { }
+
 
   if (allCharacters === "") {
     window.alert("You need to have something in your Password!");
-    generatePassword();
+    return
   }
   // generate the password
   var password = "";
